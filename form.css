@@ -1,0 +1,39 @@
+.formm{
+    border: 2px solid red;
+    
+    margin:auto;
+}
+label{
+    font-variant:small-caps;
+    font-weight:bold;
+    
+}
+.one,.two,.three,.four,.five,.six,.five{
+    padding:5px 5px;
+}
+.mot{
+   width:485px;
+   border-color:pink;
+}
+.sel{
+    width:495px;
+    border-color:aqua;
+}
+.file{
+    font-size:10px;
+}
+textarea{
+    width:480px;
+    border-color:blue;
+}
+.sev>input:hover{
+    background-color:green;
+    color:pink;
+    cursor:pointer;
+}
+.aa:hover{
+     background-color:green;
+    color:orangered;
+    cursor:pointer;
+    font-weight:bold;
+}

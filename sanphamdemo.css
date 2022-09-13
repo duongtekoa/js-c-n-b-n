@@ -1,0 +1,107 @@
+#iphone13 {
+    /* (A) DIMENSIONS */
+    width: 200px;
+    height: 200px;
+   
+    /* (B) BACKGROUND IMAGE */
+    background: url("https://image-us.24h.com.vn/upload/3-2021/images/2021-09-15/1-1631647537-638-width650height520.jpg");
+    background-position: center;
+    background-size: cover;
+    
+  }
+  #iphone12 {
+    /* (A) DIMENSIONS */
+    width: 200px;
+    height: 200px;
+   
+    /* (B) BACKGROUND IMAGE */
+    background: url("https://cdn.hoanghamobile.com/i/preview/Uploads/2020/11/06/iphone-12-pro-max-3.png");
+    background-position: center;
+    background-size: cover;
+    
+  }
+
+  #iphone11 {
+    /* (A) DIMENSIONS */
+    width: 200px;
+    height: 200px;
+   
+    /* (B) BACKGROUND IMAGE */
+    background: url("https://didongviet.vn/pub/media/catalog/product//i/p/iphone-11-pro-max-vang-didongviet_9.jpg");
+    background-position: center;
+    background-size: cover;
+   
+  }
+
+  #iphone10 {
+    /* (A) DIMENSIONS */
+    width: 200px;
+    height: 200px;
+   
+    /* (B) BACKGROUND IMAGE */
+    background: url("https://cdn.tgdd.vn/Products/Images/42/190322/iphone-xs-max-256gb-white-600x600.jpg");
+    background-position: center;
+    background-size: cover;
+    
+  }
+
+  #ipad1 {
+    /* (A) DIMENSIONS */
+    width: 200px;
+    height: 200px;
+   
+    /* (B) BACKGROUND IMAGE */
+    background: url("https://www.duchuymobile.com/images/companies/1/1-tin-moi/2021/thang-4/22-4/thiet-ke-ipad-pro-2021.JPG?1619147662952");
+    background-position: center;
+    background-size: cover;
+    
+  }
+  #ipad2 {
+    /* (A) DIMENSIONS */
+    width: 200px;
+    height: 200px;
+   
+    /* (B) BACKGROUND IMAGE */
+    background: url("https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(5):fill(white)/fptshop.com.vn/Uploads/Originals/2020/3/24/637206599391904674_ipad-pro-11-wf-xam-1.png");
+    background-position: center;
+    background-size: cover;
+    
+  }
+
+  #ipad3 {
+    /* (A) DIMENSIONS */
+    width: 200px;
+    height: 200px;
+   
+    /* (B) BACKGROUND IMAGE */
+    background: url("https://onewaymobile.vn/images/products/2021/02/05/original/apple-ipad-air-4-wifi_1612530283.png");
+    background-position: center;
+    background-size: cover;
+    
+  }
+
+  #ipad4 {
+    /* (A) DIMENSIONS */
+    width: 200px;
+    height: 200px;
+   
+    /* (B) BACKGROUND IMAGE */
+    background: url("https://images.fpt.shop/unsafe/filters:quality(5)/fptshop.com.vn/uploads/images/tin-tuc/101029/Originals/ipadpro.jpeg");
+    background-position: center;
+    background-size: cover;
+    
+  }
+
+  #iphone{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding-top: 200px;
+      
+  }
+  #ipad{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 50px;
+  }

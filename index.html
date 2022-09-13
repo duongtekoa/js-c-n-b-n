@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOWCASE</title>
+    
+    <style>
+        :root{
+           --main-color: #191F3A;
+           --sub-color: #EAA023;
+        }
+        * {
+            margin: 0px;
+            padding: 0px;
+            outline: none;
+            box-sizing: border-box;
+        }
+        .btn{
+            background-color: transparent;
+            padding: 15px 30px;
+            border: 2px solid var(--sub-color);
+            border-radius: 50px;
+            color: var(--sub-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn:hover{
+            background-color: white;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .container{
+            margin: auto;
+            max-width: 1200px;
+        }
+        .row{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .top{
+            background-color: transparent;
+            position: fixed;
+            width: 100vw;
+            z-index: 5;
+        }
+        .top::before{
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--main-color);
+            z-index: -1;
+            transform: translateY(-100%);
+        }
+        .top.active::before{
+            transform: translateY(0);
+        }
+        .top .logo img{
+            width: 80px;
+        }
+        .top .menu-bar{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .top .menu-bar.active {
+            position: fixed;
+            top: 30px;
+            right: 0px;
+            transform: translateX(-200px);
+            z-index: 1;
+        }
+        .top .menu-bar span{
+            display: block;
+            height: 2px;
+            width: 40px;
+            background-color: var(--sub-color);
+            position: relative;
+        }
+        .top .menu-bar.active span{
+            background-color: transparent;
+        }
+        .top .menu-bar.active span::before{
+            transform: rotate(-135deg);
+        }
+        .top .menu-bar.active span::after{
+            transform: rotate(135deg);
+        }
+        .top .menu-bar span::before{
+            height: 2px;
+            width: 40px;
+            content: "";
+            display: block;
+            position: absolute;
+            transform: translateY(-10px);
+            background-color: var(--sub-color);
+            transition: all 0.3s ease;
+        }
+        .top .menu-bar span::after{
+            height: 2px;
+            width: 40px;
+            content: "";
+            display: block;
+            position: absolute;
+            transform: translateY(10px);
+            background-color: var(--sub-color);
+            transition: all 0.3s ease;
+        }
+        .justify-content{
+            justify-content: space-between;
+        }
+        .menu-items{
+            position: fixed;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--main-color);
+            right: 0;
+            top: 0;
+            padding: 100px 50px;
+            transform: translateX(100%);
+        }
+        .menu-items.active{
+            transform: translateX(0);
+        }
+        .menu-items a {
+            color: white;
+            line-height: 40px;
+            font-size: 25px;
+            
+        }
+        /* big image */
+        .big-image{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        .big-image::before{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://i.imgur.com/SBELLGE.jpeg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            z-index: -2;
+            animation: io 5s infinite;
+        }
+        @keyframes io{
+            0%,100%{
+                transform: scale(1);
+            }
+            50%{
+                transform: scale(1.1);
+            }
+        }
+        .big-image::after{
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0.3;
+            z-index: -2;
+        }
+        .big-image-content{
+            text-align: center;
+            max-width: 500px;
+        }
+        .big-image-content{
+            font-size: 50px;
+            color: white;
+        }
+        .background{
+            background-color: blanchedalmond;
+            width: 100vw;
+            height: 750px;
+            
+        }
+                    
+
+            
+            .roww{
+                display: flex;
+            justify-content: center;
+                padding-top: 350px;
+            
+                
+            }
+            .column{
+                padding-left: 8px;
+                
+            }
+            
+            .tong{
+                text-align: center;
+                display: flex;
+                flex-direction: row;
+            }
+            .column1:hover{
+                box-shadow: 0 4px 8px 0 red;
+            }
+            .modal{
+                display: none;
+                position: fixed;
+                z-index: 1;
+                padding-top: 100px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: black;
+                z-index: 15;
+            }
+            .modal-content {
+                background-color: black;
+                text-align: center;
+                }
+                .demo {
+                opacity: 0.6;
+                }
+                .demo:hover{
+                    opacity: 1;
+                    
+                }
+                .close {
+                color: white;
+                position: absolute;
+                top: 75px;
+                right: 25px;
+                font-size: 35px;
+                font-weight: bold;
+                z-index: 5;
+                }
+                .close:hover{
+                    cursor: pointer;
+                    background-color: aqua;
+                }
+                .close:focus {
+                color: #999;
+                text-decoration: none;
+                cursor: pointer;
+                }
+                .prev,.next {
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                width: auto;
+                padding: 16px;
+                margin-top: -50px;
+                color: white;
+                font-weight: bold;
+                font-size: 20px;
+                transition: 0.6s ease;
+                border-radius: 0 3px 3px 0;
+                user-select: none;
+                -webkit-user-select: none;
+                }
+                .next {
+                right: 0;
+                border-radius: 3px 0 0 3px;
+                }
+                .prev:hover,.next:hover {
+                background-color: red;
+                }
+                .hover-shadow:hover {
+                box-shadow: 0 4px 8px 0 red;
+                }
+                .caption-container {
+                text-align: center;
+                background-color: black;
+                padding: 2px 16px;
+                color: white;
+                }
+                .numbertext {
+                color: white;
+                font-size: 30px;
+                padding: 8px 12px;
+                position: absolute;
+                top: 100px;
+                }
+                #sanphamdemo{
+                    background-color: #b5c1f8;
+                    width: 100vw;
+                    height: 750px;
+                }
+                #form{
+                    width: 100vw;
+                    height: 750px;
+                    padding-top: 10px;
+                    animation: changecolor 20s infinite;
+
+                }
+                @keyframes  changecolor{
+                    0%{
+                        background-color: red;
+                    }
+                    15%{
+                        background-color: rgb(229, 255, 0);
+                    }
+                    25%{
+                        background-color: rgba(240, 197, 6, 0.905);
+                    }
+                    50%{
+                        background-color: rgb(27, 237, 62);
+                    }
+                    75%{
+                        background-color: rgb(65, 27, 237);
+                    }
+                    85%{
+                        background-color: rgb(209, 27, 237);
+                    }
+                    100%{
+                        background-color: rgb(237, 27, 170);
+                    }
+                }
+        #form div{
+            color: rgb(229, 196, 133);
+        }
+        form{
+            border: 2px solid pink;
+            padding: 20px 70px;
+            line-height: 30px;
+            width: 800px;
+            background-color: rgb(33, 146, 198);
+            border-radius: 25px;
+            margin-left: 600px;
+            
+        }
+        #hd1{
+            border: 1px solid red;
+            overflow: hidden;
+            margin-left: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="sanphamdemo.css" >
+    <link rel="stylesheet" href="form.css" >
+</head>
+<body>
+    <section class="top">
+        <div class="container">
+            <div class="row justify-content">
+                <div class="logo"><img src="https://cdn.tgdd.vn/Products/Images/42/274153/iphone-13-pro-max-xanh-la-thumb-600x600.jpg" /></div>
+                <div class="menu-bar">
+                    <span></span>
+                </div>
+                <div class="menu-items">
+                    <ul>
+                        <li class="menu-item" ><a href="#trangchu">Trang chủ</a></li>
+                        <li class="menu-item" ><a href="#slideshow">SLIDE SHOW</a></li>
+                        <li class="menu-item" ><a href="#sanphamdemo">Sản Phẩm DEMO</a></li>
+                        <li class="menu-item" ><a href="#form">Trang Đăng Kí</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="trangchu" class="big-image">
+        <div class="big-image-content">
+            <h2>THINK DIFFERENT</h2>
+            <button class="big-image-content-btn btn">View the Gallery</button>
+        </div>
+    </section>
+    <section class="slide" id="slideshow">
+        <div class="background">
+            <!-- code khi kick vao hinh anh de hien lightbox -->
+            <div class="roww">
+                <div class="column">
+                  <img src="https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2019/9/9/753713/Image-1567668443-Iph.jpg" width="300px" height="200px" onclick="openModal();currentSlide(1)" class="hover-shadow">
+                </div>
+                <div class="column">
+                  <img src="https://cdn.sforum.vn/sforum/wp-content/uploads/2019/11/Report-from-Korea-says-to-expect-2.jpg" width="300px" height="200px" onclick="openModal();currentSlide(2)" class="hover-shadow">
+                </div>
+                <div class="column">
+                  <img src="https://kenh14cdn.com/2019/12/6/photo-1-1575591919060771731479.jpg" width="300px" height="200px" onclick="openModal();currentSlide(3)" class="hover-shadow">
+                </div>
+                <div class="column">
+                  <img src="https://ggstorage.oxii.vn/images/oxii-2019-7-29/728/eakamrxxoaeyrxx.jpg" width="300px" height="200px" onclick="openModal();currentSlide(4)" class="hover-shadow">
+                </div>
+              </div>
+              <!-- code hình lớn(model image) -->
+              <!-- The Modal/Lightbox -->
+                    <div id="myModal" class="modal">
+                        <button class="close" onclick="closeModal()">X</button>
+                        <div class="modal-content">
+                    
+                        <div class="mySlides">
+                            <div class="numbertext">1 / 4</div>
+                            <img src="https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2019/9/9/753713/Image-1567668443-Iph.jpg" height="400px" width="700px">
+                        </div>
+                    
+                        <div class="mySlides">
+                            <div class="numbertext">2 / 4</div>
+                            <img src="https://cdn.sforum.vn/sforum/wp-content/uploads/2019/11/Report-from-Korea-says-to-expect-2.jpg" height="400px" width="700px">
+                        </div>
+                    
+                        <div class="mySlides">
+                            <div class="numbertext">3 / 4</div>
+                            <img src="https://kenh14cdn.com/2019/12/6/photo-1-1575591919060771731479.jpg" height="400px" width="700px">
+                        </div>
+                    
+                        <div class="mySlides">
+                            <div class="numbertext">4 / 4</div>
+                            <img src="https://ggstorage.oxii.vn/images/oxii-2019-7-29/728/eakamrxxoaeyrxx.jpg" height="400px" width="700px">
+                        </div>
+                        </div>
+                    
+                    <!-- code nut next prev -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    
+                    <div class="caption-container">
+                        <p id="caption">PRODUCT OF APPLE</p>
+                    </div>
+                    <!-- code ảnh nhỏ để điều khiển model img -->
+                    <div class="tong">
+                    <div class="column1">
+                        <img class="demo" src="https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2019/9/9/753713/Image-1567668443-Iph.jpg" width="280px" height="200px" onclick="currentSlide(1)" >
+                      </div>
+                  
+                      <div class="column1">
+                        <img class="demo" src="https://cdn.sforum.vn/sforum/wp-content/uploads/2019/11/Report-from-Korea-says-to-expect-2.jpg" width="280px" height="200px" onclick="currentSlide(2)" >
+                      </div>
+                  
+                      <div class="column1">
+                        <img class="demo" src="https://kenh14cdn.com/2019/12/6/photo-1-1575591919060771731479.jpg" width="280px" height="200px" onclick="currentSlide(3)" >
+                      </div>
+                  
+                      <div class="column1">
+                        <img class="demo" src="https://ggstorage.oxii.vn/images/oxii-2019-7-29/728/eakamrxxoaeyrxx.jpg" width="280px" height="200px" onclick="currentSlide(4)" >
+                      </div>
+                    </div>
+                    </div>
+        </div>
+    </section>
+    <section id="sanphamdemo">
+            <div id="iphone">
+            <div id="hd1">
+                <div id="iphone13" onmouseover="ip13()" onmouseout="ip13o()"></div>
+            </div>
+            <div id="hd1">
+                <div id="iphone12" onmouseover="ip12()" onmouseout="ip12o()"></div>
+            </div>
+            <div id="hd1">
+                <div id="iphone11" onmouseover="ip11()" onmouseout="ip11o()"></div>
+            </div>
+            <div id="hd1">
+                <div id="iphone10" onmouseover="ip10()" onmouseout="ip10o()"></div>
+            </div>
+            </div>
+            <div id="ipad">
+            <div id="hd1">
+                <div id="ipad1" onmouseover="ipad1()" onmouseout="ipad1o()"></div>
+            </div>
+            <div id="hd1">
+                <div id="ipad2" onmouseover="ipad2()" onmouseout="ipad2o()"></div>
+            </div>
+            <div id="hd1">
+                <div id="ipad3" onmouseover="ipad3()" onmouseout="ipad3o()"></div>
+            </div>
+            <div id="hd1">
+                <div id="ipad4"onmouseover="ipad4()" onmouseout="ipad4o()"></div>
+            </div>
+            </div>
+    </section>
+
+    <script>
+        function ip13(){
+            document.getElementById("iphone13").style.transform = "scale(1.4)";
+            document.getElementById("iphone13").style.transition = "1.5s ease-in";
+        }
+        function ip13o(){
+            document.getElementById("iphone13").style.transform = "scale(1)";
+        }
+        function ip12(){
+            document.getElementById("iphone12").style.transform = "scale(1.4)";
+            document.getElementById("iphone12").style.transition = "1.5s ease-in";
+        }
+        function ip12o(){
+            document.getElementById("iphone12").style.transform = "scale(1)";
+        }
+        function ip11(){
+            document.getElementById("iphone11").style.transform = "scale(1.4)";
+            document.getElementById("iphone11").style.transition = "1.5s ease-in";
+        }
+        function ip11o(){
+            document.getElementById("iphone11").style.transform = "scale(1)";
+        }
+        function ip10(){
+            document.getElementById("iphone10").style.transform = "scale(1.4)";
+            document.getElementById("iphone10").style.transition = "1.5s ease-in";
+        }
+        function ip10o(){
+            document.getElementById("iphone10").style.transform = "scale(1)";
+        }
+        function ipad1(){
+            document.getElementById("ipad1").style.transform = "scale(1.4)";
+            document.getElementById("ipad1").style.transition = "1.5s ease-in";
+        }
+        function ipad1o(){
+            document.getElementById("ipad1").style.transform = "scale(1)";
+        }
+        function ipad2(){
+            document.getElementById("ipad2").style.transform = "scale(1.4)";
+            document.getElementById("ipad2").style.transition = "1.5s ease-in";
+        }
+        function ipad2o(){
+            document.getElementById("ipad2").style.transform = "scale(1)";
+        }
+        function ipad3(){
+            document.getElementById("ipad3").style.transform = "scale(1.4)";
+            document.getElementById("ipad3").style.transition = "1.5s ease-in";
+        }
+        function ipad3o(){
+            document.getElementById("ipad3").style.transform = "scale(1)";
+        }
+        function ipad4(){
+            document.getElementById("ipad4").style.transform = "scale(1.4)";
+            document.getElementById("ipad4").style.transition = "1.5s ease-in";
+        }
+        function ipad4o(){
+            document.getElementById("ipad4").style.transform = "scale(1)";
+        }
+    </script>
+
+    <section id="form">
+        <form class="formm">
+            <div class="one">
+                <p>
+                <label>MÃ Sinh Vien:</label><br />
+                <input type="text" id="masv" class="txt" class="mot" placeholder="Mã SV" /><br />
+            </p>
+                <label>Họ Và Tên:</label><br />
+                <p>
+                <input type="text" id="hoten" class="txt" class="mot" placeholder="họ và tên" /><br />
+                <label>Email:</label><br />
+            </p>
+                <p>
+                <input type="text" id="email" class="txt" class="mot" placeholder="Email" /><br />
+            </p>
+            </div>
+            <div class="two">
+                <p>
+                <fieldset id="fs1">
+                <label>giới tính:</label>
+                <input type="radio" id="nam" name="phai" value="NAM" />
+                <label for="nam">NAM</label>
+                <input type="radio" id="nu" name="phai" value="NU" />
+                <label for="nu">NỮ</label><br />
+                </fieldset>
+            </p>
+            </div>
+            
+            <div class="four">
+                <p>
+                <label>quốc tịch</label><br />
+                <select id="quoctich" name="quoctich" class="txt" class="sel">
+                    <option value="0">Mời chọn quốc tịch</option>
+                    <option value="1">VIỆT NAM</option>
+                    <option value="2">ENGLAND</option>
+                    <option value="3">AMERICAR</option>
+                    <option value="4">JAPAN</option>
+                    <option value="5">KORRAN</option>
+                </p>
+            </div>
+            </select><br />
+            <div class="five">
+            <p>
+                <fieldset id="fs2">
+                <label>sở thích</label><br />
+                <input type="checkbox" name="st" /> <label>THỂ THAO</label>
+                <input type="checkbox" name="st" /> <label>DU LỊCH</label>
+                <input type="checkbox" name="st" /> <label>ÂM NHẠC</label>
+                <input type="checkbox" name="st" /> <label>ẨM THỰC</label><br />
+                </fieldset>
+            </p>
+            </div>
+            <div class="six">
+                <label>ghi chú</label><br />
+                <textarea id="ghichu" rows="4" cols="50" placeholder="ghi vào"></textarea>
+            </div>
+                    <hr />
+                    <div id="baoloi"></div>
+            <div class="sev">
+                <button type="button" id="dangki" onclick="return kiemtra()">ĐĂNG KÍ</button>
+                
+                
+            </div>
+        </form>
+    </section>
+        <script type="text/javascript">
+            function kiemtra(){
+                 var loi = "";
+                 //kiểm tra mã sv
+
+                var masv= document.getElementById("masv");
+                if(masv.value == ""){
+                    masv.className="loi";
+                    loi +="ma sv ko dc bo trong<br>"
+                }else if(masv.value.length!=7){
+                    masv.className="loi";
+                    loi +="ma sv ko dung 7 ki tu<br>"
+                }else masv.className="txt";
+
+                   //kiểm tra họ và tên
+                var hoten= document.getElementById("hoten");
+                if(hoten.value == ""){
+                    hoten.className="loi";
+                    loi +="ho ten ko dc bo trong<br>"
+                }else if(hoten.value.length>30){
+                    hoten.className="loi";
+                    loi +="ho va ten qua dai<br>"
+                }else if(hoten.value.length<5){
+                    hoten.className="loi"
+                    loi +="ho va ten qua ngan<br>"
+                }else hoten.className="txt"
+
+                //Kiểm tra email
+                
+                var email= document.getElementById("email");
+                var filter = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/;
+                if(email.value == ""){
+                    email.className="loi";
+                    loi +="email ko dc bo trong<br>"
+                }else if(!filter.test(email.value)) {
+                    loi +="email phai nhap dung dinh dang<br>";
+                
+                }else email.className="txt"
+
+                //kiem tra phai
+                var dem=0;
+                var arr_phai = document.getElementsByName("phai");
+                for(var i=0; i<arr_phai.length; i++){
+                    if(arr_phai[i].checked ==true) dem++;
+                }
+                if(dem==0){
+                    document.getElementById("fs1").className="loi";
+                    loi +="phai chon gioi tinh<br>"
+                }else document.getElementById("fs1").className="";
+
+
+                
+
+                  //kiem tra so thich
+                  
+                var arr_sothich = document.getElementsByName("st");
+                var dem=0;
+                for(var i=0; i<arr_sothich.length; i++){
+                    if(arr_sothich[i].checked ==true) dem++;
+                }
+                if(dem==0){
+                    document.getElementById("fs2").className="loi";
+                    loi +="phai chon so thich<br>"
+                }else document.getElementById("fs2").className="";
+
+                //quoc tich
+                var qt = document.getElementById("quoctich");
+                if(qt.value==0){
+                    qt.className="loi"
+                    loi +="phai chon quoc tich<br>"
+                }else qt.className="txt";
+
+                 if(loi != ""){
+                     document.getElementById("baoloi").innerHTML=loi;
+                     
+                     return false;
+                 }
+               
+                 }
+    
+        </script>
+    
+    <script src="myscripts.js"></script>
+    <script src="boxlight.js"></script>
+    <script src="zoom.js"></script>
+    
+</body>
+</html>
